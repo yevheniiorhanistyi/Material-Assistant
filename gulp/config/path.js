@@ -1,8 +1,9 @@
 import * as nodePath from 'path';
+
 const rootFolder = nodePath.basename(nodePath.resolve());
 
-const buildFolder = `./dist`;
-const srcFolder = `./src`;
+const buildFolder = './dist';
+const srcFolder = './src';
 
 export const path = {
   build: {
@@ -11,7 +12,7 @@ export const path = {
     html: `${buildFolder}/`,
     images: `${buildFolder}/img/`,
     fonts: `${buildFolder}/fonts/`,
-    files: `${buildFolder}/files/`
+    files: `${buildFolder}/files/`,
   },
   src: {
     js: `${srcFolder}/js/main.js`,
@@ -27,11 +28,11 @@ export const path = {
     scss: `${srcFolder}/scss/**/*.scss`,
     html: `${srcFolder}/**/*.html`,
     images: `${srcFolder}/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,
-    files: `${srcFolder}/files/**/*.*`
+    files: `${srcFolder}/files/**/*.*`,
   },
   clean: [`${buildFolder}/js`, `${buildFolder}/css`, `${buildFolder}/img`, 'index.html', `!${buildFolder}/fonts`],
-  buildFolder: buildFolder,
-  srcFolder: srcFolder,
-  rootFolder: rootFolder,
-  ftp: ``
+  buildFolder,
+  srcFolder,
+  rootFolder,
+  ftp: '',
 };
