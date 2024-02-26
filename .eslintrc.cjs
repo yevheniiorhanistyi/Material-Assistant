@@ -3,6 +3,10 @@ module.exports = {
   globals: {
     app: 'readonly',
   },
+  env: {
+    browser: true,
+    node: true,
+  },
   rules: {
     'import/ignoreImports': 0,
     'import/prefer-default-export': 'off',
