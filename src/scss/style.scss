@@ -1,1 +1,28 @@
 @import './vendor/normalize.scss';
+@import './vendor/fonts.scss';
+@import './vendor/vars.scss';
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+
+  background-color: $bg-page;
+}
