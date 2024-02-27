@@ -23,12 +23,12 @@ body {
   font-family: 'Roboto', 'Arial', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-
   background-color: $bg-page;
 }
 
 .wrapper {
   display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -36,68 +36,127 @@ body {
   margin: 0 auto;
 }
 
-.header {
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  flex: 0 0 auto;
+  padding: 8px;
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.54);
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.icon-button:active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  user-select: none;
+  fill: $font-main-color;
+  outline: 0;
+}
+
+.header,
+.tabs {
   display: flex;
   flex-shrink: 0;
   width: 100%;
-  min-height: 64px;
+  min-height: 48px;
   background-color: $bg-button;
+}
 
-  &__menu {
-    display: flex;
-    justify-content: space-between;
+.header__menu,
+.tabs-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px 0;
+}
+
+.header__title {
+  font-family: 'Roboto-Medium', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1.334;
+  color: $font-main-color;
+}
+
+.tabs-list {
+  padding: 0;
+  align-items: center;
+  list-style: none;
+  overflow-x: auto;
+}
+
+.tabs-list__item {
+  .tab-button {
+    display: inline-flex;
     align-items: center;
-    padding: 8px 24px;
-  }
-
-  &__title {
-    font-family: 'Roboto-Medium', sans-serif;
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    line-height: 1.334;
+    justify-content: center;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    text-decoration: none;
     color: $font-main-color;
+    font-family: 'Roboto-Medium', sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    letter-spacing: 0.02857em;
+    max-width: 360px;
+    min-width: 46px;
+    min-height: 42px;
+    flex-shrink: 0;
+    padding: 0;
+    opacity: 0.6;
+    text-transform: none;
+    margin: 0 24px;
+    position: relative;
+    transition: opacity .2s linear;
   }
 
-  .button-wrapper {
-    .icon-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      box-sizing: border-box;
-      background-color: transparent;
-      outline: 0;
-      border: 0;
-      margin: 0;
-      padding: 0;
-      cursor: pointer;
-      user-select: none;
-      text-align: center;
-      flex: 0 0 auto;
-      padding: 8px;
-      border-radius: 50%;
-      color: rgba(0, 0, 0, 0.54);
-      transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-      padding: 8px;
+  .tab-button:hover,
+  .tab-button:active {
+    opacity: 1;
+  }
 
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.04);
-      }
+  .tab-button::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-55%);
+    transition: width .2s linear;
+    background-color: $font-main-color;
+  }
 
-      &:active {
-        background-color: rgba(0, 0, 0, 0.12);
-      }
+  .selected {
+    opacity: 1;
 
-      .icon {
-        width: 1em;
-        height: 1em;
-        flex-shrink: 0;
-        font-size: 1.5rem;
-        user-select: none;
-        fill: $font-main-color;
-        outline: 0;
-      }
+    &::after {
+      width: 50%;
     }
   }
 }
