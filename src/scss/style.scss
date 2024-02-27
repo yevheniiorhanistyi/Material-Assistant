@@ -26,3 +26,78 @@ body {
 
   background-color: $bg-page;
 }
+
+.wrapper {
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 64px;
+  background-color: $bg-button;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px;
+  }
+
+  &__title {
+    font-family: 'Roboto-Medium', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1.334;
+    color: $font-main-color;
+  }
+
+  .button-wrapper {
+    .icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+      background-color: transparent;
+      outline: 0;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      flex: 0 0 auto;
+      padding: 8px;
+      border-radius: 50%;
+      color: rgba(0, 0, 0, 0.54);
+      transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      padding: 8px;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+
+      &:active {
+        background-color: rgba(0, 0, 0, 0.12);
+      }
+
+      .icon {
+        width: 1em;
+        height: 1em;
+        flex-shrink: 0;
+        font-size: 1.5rem;
+        user-select: none;
+        fill: $font-main-color;
+        outline: 0;
+      }
+    }
+  }
+}
