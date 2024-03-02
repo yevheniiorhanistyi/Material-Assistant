@@ -2,7 +2,7 @@
   <div class="form-fields-group">
     <label class="form-fields-group-label" for="material-input">Materiał</label>
     <div class="form-fields-group__wrapper">
-      <input class="form-fields-input" min="0" max="100" type="number" id="material-input" placeholder="54.8">
+      <input required class="form-fields-input" min="0" max="100" type="number" id="material-input" placeholder="54.8">
       <span class="form-fields-input-adornment">
         %
       </span>
@@ -11,10 +11,30 @@
   <div class="form-fields-group">
     <label class="form-fields-group-label" for="raw-material-input">Ilość surowca</label>
     <div class="form-fields-group__wrapper">
-      <input class="form-fields-input" min="0" type="number" id="raw-material-input" placeholder="3400">
+      <input required class="form-fields-input" min="0" type="number" id="raw-material-input" placeholder="3400">
       <span class="form-fields-input-adornment">
         kg
       </span>
     </div>
+  </div>
+  <div class="select-group">
+    <label class="form-fields-group-label" for="mixer-size-select">Wielkość mieszałki</label>
+    <select class="form-select" id="mixer-size-select">
+      <option value="400">400kg</option>
+      <option value="410">410kg</option>
+      <option value="420">420kg</option>
+      <option value="430" selected>430kg</option>
+      <option value="440">440kg</option>
+      <option value="450">450kg</option>
+    </select>
+  </div>
+  <div class="select-group">
+    <label class="form-fields-group-label" for="grammage-select">Grammatura</label>
+    <select class="form-select" id="grammage-select">
+      <option value="400" selected>400g</option>
+      <option value="700">700g</option>
+      <option value="800">800g</option>
+      <option value="900">900g</option>
+    </select>
   </div>
 </form>

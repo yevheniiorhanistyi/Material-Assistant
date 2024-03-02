@@ -177,7 +177,8 @@ body {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
-.form-fields-group {
+.form-fields-group,
+.select-group {
   display: flex;
   flex-direction: column;
   min-width: 0px;
@@ -185,14 +186,19 @@ body {
   margin: 8px;
   width: 25ch;
 
-  &:focus-within .form-fields-group-label {
+  &:focus-within label {
     color: $font-accent-color;
   }
 
-  &:focus-within .form-fields-input {
+  &:focus-within input,
+  &:focus-within select {
     border-color: transparent;
     outline: 2px solid $font-accent-color;
   }
+}
+
+.select-group {
+  width: 20ch;
 }
 
 .form-fields-group-label {
@@ -216,7 +222,7 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.4375em;
   letter-spacing: 0.00938em;
-  border: 1px solid #e3e3e3;
+  border: 1px solid $border-color;
   border-radius: 4px;
   outline: transparent;
   margin: 0px;
@@ -234,4 +240,18 @@ body {
   color: rgba(0, 0, 0, 0.6);
   position: absolute;
   right: 25px;
+}
+
+.form-select {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4375em;
+  letter-spacing: 0.00938em;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  outline: transparent;
+  margin: 0px;
+  display: block;
+  min-width: 0px;
+  width: 100%;
+  padding: 11px;
 }
