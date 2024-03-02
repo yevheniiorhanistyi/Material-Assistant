@@ -73,6 +73,10 @@ body {
   outline: 0;
 }
 
+.form-button-clear .icon {
+  fill: rgba(0, 0, 0, 0.54);
+}
+
 .header,
 .tabs {
   display: flex;
@@ -168,8 +172,10 @@ body {
 
 .form {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 936px;
-  padding: 24px;
+  padding: 40px 24px;
   margin: auto;
   overflow: hidden;
   background-color: #fff;
@@ -184,7 +190,7 @@ body {
   min-width: 0px;
   vertical-align: top;
   margin: 8px;
-  width: 25ch;
+  width: 22ch;
 
   &:focus-within label {
     color: $font-accent-color;
@@ -254,4 +260,42 @@ body {
   min-width: 0px;
   width: 100%;
   padding: 11px;
+}
+
+.form-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 80px;
+  padding-top: 20px;
+}
+
+.form-button-calculate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  min-width: 64px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: $font-main-color;
+  background-color: $bg-button;
+
+  &:hover {
+    background-color: $bg-button-hover;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    box-shadow: none;
+  }
 }
