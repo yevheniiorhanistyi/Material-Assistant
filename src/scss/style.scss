@@ -151,7 +151,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-55%);
+    transform: translateX(-60%);
     transition: width .2s linear;
     background-color: $font-main-color;
   }
@@ -173,6 +173,7 @@ body {
 .form {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   max-width: 936px;
   padding: 40px 24px;
@@ -190,7 +191,6 @@ body {
   min-width: 0px;
   vertical-align: top;
   margin: 8px;
-  width: 22ch;
 
   &:focus-within label {
     color: $font-accent-color;
@@ -221,7 +221,6 @@ body {
   align-items: center;
   position: relative;
   border-radius: 4px;
-  padding-right: 14px;
 }
 
 .form-fields-input {
@@ -267,11 +266,12 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 80px;
+  max-width: 142px;
   padding-top: 20px;
 }
 
 .form-button-calculate {
+  font-family: 'Roboto-Medium', sans-serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -284,7 +284,9 @@ body {
   line-height: 1.75;
   letter-spacing: 0.02857em;
   min-width: 64px;
+  height: 45px;
   padding: 10px 20px;
+  margin: 0 10px;
   border-radius: 8px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: $font-main-color;
@@ -297,5 +299,60 @@ body {
 
   &:active {
     box-shadow: none;
+  }
+}
+
+.calculate-result {
+  max-width: 936px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  overflow-x: auto;
+}
+
+.portion-result-table {
+  display: table;
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  border-spacing: 0px;
+
+  th {
+    font-family: 'Roboto-Medium', sans-serif;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    letter-spacing: 0.00938em;
+    font-weight: 500;
+    display: table-cell;
+    vertical-align: inherit;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    text-align: center;
+    padding: 20px 18px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  td {
+    font-size: 1rem;
+    line-height: 1.4375em;
+    letter-spacing: 0.00938em;
+    display: table-cell;
+    vertical-align: inherit;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    text-align: center;
+    padding: 18px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  .font-medium {
+    font-family: 'Roboto-Medium', sans-serif;
+  }
+
+  .align-left {
+    text-align: left;
+  }
+
+  .border-none {
+    border: none;
   }
 }
