@@ -103,6 +103,8 @@ body {
   color: $font-main-color;
 }
 
+/* === Portion tabs === */
+
 .tabs-list {
   padding: 0;
   align-items: center;
@@ -111,6 +113,7 @@ body {
 }
 
 .tabs-list__item {
+
   .tab-button {
     display: inline-flex;
     align-items: center;
@@ -131,10 +134,10 @@ body {
     min-width: 46px;
     min-height: 42px;
     flex-shrink: 0;
+    margin: 0 26px;
     padding: 0;
     opacity: 0.6;
     text-transform: none;
-    margin: 0 26px;
     position: relative;
     transition: opacity .2s linear;
   }
@@ -151,7 +154,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-60%);
+    transform: translateX(-50%);
     transition: width .2s linear;
     background-color: $font-main-color;
   }
@@ -164,6 +167,26 @@ body {
     }
   }
 }
+
+.tab-input {
+  min-width: 9px;
+  color: $font-main-color;
+  letter-spacing: 0.02857em;
+  padding: 0;
+  margin-right: -4px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.tabs .button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 13px;
+}
+
+/* === / Portion tabs === */
 
 .main {
   flex: 1;
@@ -356,3 +379,48 @@ body {
     border: none;
   }
 }
+
+/* === Custom context menu === */
+
+.custom-menu {
+  position: fixed;
+  top: 79px;
+  left: 179px;
+  margin-top: 5px;
+  background-color: $bg-list-item-modal;
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  z-index: 1000;
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    padding: 5px 15px;
+    transition: background-color .2s linear;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $bg-list-item-modal-hover;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 998;
+  }
+}
+
+/* === / Custom context menu === */
