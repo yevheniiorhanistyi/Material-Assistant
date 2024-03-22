@@ -1,6 +1,5 @@
-export const createElement = (tag, classList, content = '') => {
+export const createElement = (tag, classList) => {
   const element = document.createElement(tag);
   element.classList = classList;
-  element.innerHTML = content;
   return element;
 };
