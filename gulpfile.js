@@ -18,8 +18,6 @@ global.app = {
   plugins,
 };
 
-// import { ttfToWoff } from "./gulp/tasks/fonts.js";
-
 function watcher() {
   gulp.watch(path.watch.files, copy);
   gulp.watch(path.watch.html, html);
