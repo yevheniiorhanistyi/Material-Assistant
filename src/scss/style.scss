@@ -26,7 +26,7 @@ body {
   background-color: $bg-page;
 }
 
-.wrapper {
+#root {
   display: flex;
   flex-direction: column;
 }
@@ -198,7 +198,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  max-width: 936px;
+  max-width: 1125px;
   padding: 40px 24px;
   margin: auto;
   overflow: hidden;
@@ -207,13 +207,24 @@ body {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
+.form-group {
+  position: relative;
+
+  .text-help {
+    font-size: 14px;
+    position: absolute;
+    left: 2px;
+    bottom: -28px;
+    color: $error-color;
+  }
+}
+
 .form-fields-group,
 .select-group {
   display: flex;
   flex-direction: column;
   min-width: 0px;
   vertical-align: top;
-  margin: 8px;
 
   &:focus-within label {
     color: $font-accent-color;
@@ -226,8 +237,30 @@ body {
   }
 }
 
-.select-group {
-  width: 20ch;
+.form-fields-group {
+  min-width: 250px;
+}
+
+.has-danger {
+  label {
+    color: $error-color;
+  }
+
+  input,
+  select {
+    border-color: transparent;
+    outline: 2px solid $error-color;
+  }
+
+  &:focus-within label {
+    color: $error-color;
+  }
+
+  &:focus-within input,
+  &:focus-within select {
+    border-color: transparent;
+    outline: 2px solid $error-color;
+  }
 }
 
 .form-fields-group-label {
@@ -236,7 +269,7 @@ body {
   font-size: 1rem;
   line-height: 1.4375em;
   letter-spacing: 0.00938em;
-  margin-left: 2px;
+  margin-right: 5px;
 }
 
 .form-fields-group__wrapper {
@@ -267,7 +300,7 @@ body {
   letter-spacing: 0.00938em;
   color: rgba(0, 0, 0, 0.6);
   position: absolute;
-  right: 25px;
+  right: 12px;
 }
 
 .form-select {
@@ -326,7 +359,7 @@ body {
 }
 
 .portion-calculate-result {
-  max-width: 936px;
+  max-width: 1125px;
   margin: 40px auto;
   background-color: #fff;
   border-radius: 8px;
