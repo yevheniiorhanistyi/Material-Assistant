@@ -1,5 +1,5 @@
 import { MIN_PORTION_SIZE, MAX_PORTION_SIZE } from '../../constants/constants.js';
-import { getFromLocalStorage, findFormByUid } from '../../utils/index.js';
+import { createElement, getFromLocalStorage, findFormByUid } from '../../utils/index.js';
 
 const calcMaterialPerMinMixerSize = (val) => Math.ceil((MIN_PORTION_SIZE * val) / 100);
 const calcMaterialPerMaxMixerSize = (val) => Math.ceil((MAX_PORTION_SIZE * val) / 100);
@@ -13,7 +13,12 @@ const calcPortions = (totalRawMaterial, materialPerDefaultMixerSize, mixerSize) 
 };
 
 export const generatePortionResult = (index) => {
-  const tableWrapper = document.querySelector('.portion-calculate-result');
+  const mainEl = document.querySelector('.main');
+  const existingTable = mainEl.querySelector('.portion-calculate-result');
+
+  if (existingTable) { existingTable.remove(); }
+
+  const tableWrapper = createElement('div', 'portion-calculate-result');
   const formData = JSON.parse(getFromLocalStorage('portionFormData')) || [];
   const currentForm = findFormByUid(formData, index);
 
@@ -120,6 +125,7 @@ export const generatePortionResult = (index) => {
       portionsPerMaterial = perMaterial;
       viewResultTable();
     }
+    mainEl.append(tableWrapper);
   } else {
     tableWrapper.innerHTML = '';
   }

@@ -8,7 +8,6 @@ const initPortionForm = () => {
 
   const mainEl = createElement('main', 'main');
   const formEl = createElement('form', 'form portion-calculate-form');
-  const formResultEl = createElement('div', 'portion-calculate-result');
 
   formEl.setAttribute('id', 'portion-calculate-form');
   formEl.setAttribute('method', 'post');
@@ -61,8 +60,8 @@ const initPortionForm = () => {
 </div>
   `;
 
+  mainEl.append(formEl);
   rootEl.append(mainEl);
-  mainEl.append(formEl, formResultEl);
 };
 
 export default initPortionForm;
