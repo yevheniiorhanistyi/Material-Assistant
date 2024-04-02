@@ -8,7 +8,7 @@ import {
   findFormByUid,
 } from '../../utils/index.js';
 
-export const generatePortionForm = () => {
+const generatePortionForm = () => {
   initPortionForm();
 
   const index = JSON.parse(getFromLocalStorage('portionTabs')).find((tab) => tab.selected).uid;
@@ -90,3 +90,5 @@ export const generatePortionForm = () => {
   generatePortionResult(index);
   formButtonClear.addEventListener('click', resetForm);
 };
+
+export default generatePortionForm;
