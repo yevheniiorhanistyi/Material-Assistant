@@ -69,6 +69,10 @@ const generatePortionForm = () => {
         }
       }
 
+      const isChanged = JSON.stringify(formData[existingIndex]) === JSON.stringify(newFormData);
+
+      if (isChanged) return;
+
       if (existingIndex !== -1) {
         formData[existingIndex] = newFormData;
       } else {
@@ -84,7 +88,8 @@ const generatePortionForm = () => {
     form.reset();
     const filteredData = formData.filter((item) => item.uid !== index);
     saveToLocalStorage('portionFormData', JSON.stringify(filteredData));
-    generatePortionResult();
+    // initPortionForm();
+    generatePortionResult(index);
   }
 
   generatePortionResult(index);
