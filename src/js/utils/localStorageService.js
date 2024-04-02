@@ -7,3 +7,7 @@ export const getFromLocalStorage = (key) => localStorage.getItem(key);
 export const removeFromLocalStorage = (key) => {
   localStorage.removeItem(key);
 };
+
+export const clearLocalStorage = () => {
+  localStorage.clear();
+};
