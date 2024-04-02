@@ -16,6 +16,10 @@ const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
   saveToLocalStorage(tabsStorageKey, JSON.stringify(tabsData));
 
   function handleTabClick(tab) {
+    const isSelected = tab.classList.contains('selected');
+
+    if (isSelected) return;
+
     const tabs = document.querySelectorAll('.tab-button');
     const index = tab.getAttribute('data-tab');
 
