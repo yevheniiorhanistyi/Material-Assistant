@@ -1,16 +1,23 @@
 import { v4 as uuidv4 } from 'uuid';
-import { MAX_PORTION_TABS, INITIAL_TABS } from '../../constants/constants.js';
+import {
+  MAX_PORTION_TABS,
+  INITIAL_TABS,
+  PORTION_CONFIRM_TITLE,
+  PORTION_TAB_CONFIRM_TEXT,
+} from '../../constants/constants.js';
 import {
   createElement,
   getFromLocalStorage,
   saveToLocalStorage,
   removeFromLocalStorage,
 } from '../../utils/index.js';
+import handleModalLogic from '../modal/handleModalLogic.js';
 
 const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
   const tabsList = document.querySelector('.tabs-list');
   const createTabButton = document.querySelector('.create-tab');
   const reloadAllTabsButton = document.querySelector('.reload-tabs');
+  const { handleOpen } = handleModalLogic();
   let tabsData = JSON.parse(getFromLocalStorage(tabsStorageKey)) || [...INITIAL_TABS];
 
   saveToLocalStorage(tabsStorageKey, JSON.stringify(tabsData));
@@ -176,12 +183,7 @@ const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
     addTabToDOM(tabData);
   });
 
-  createTabButton.addEventListener('click', () => {
-    const newTabData = createNewTab(tabsData);
-    if (newTabData) addTabToDOM(newTabData);
-  });
-
-  reloadAllTabsButton.addEventListener('click', () => {
+  const reloadAllTabs = () => {
     removeFromLocalStorage(tabsStorageKey);
     removeFromLocalStorage(formDataKey);
     tabsData = [...INITIAL_TABS];
@@ -191,6 +193,15 @@ const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
     });
     saveToLocalStorage(tabsStorageKey, JSON.stringify(tabsData));
     callback();
+  };
+
+  createTabButton.addEventListener('click', () => {
+    const newTabData = createNewTab(tabsData);
+    if (newTabData) addTabToDOM(newTabData);
+  });
+
+  reloadAllTabsButton.addEventListener('click', () => {
+    handleOpen(PORTION_CONFIRM_TITLE, PORTION_TAB_CONFIRM_TEXT, reloadAllTabs);
   });
 };
 

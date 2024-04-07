@@ -1,7 +1,13 @@
 import Pristine from 'pristinejs';
-import { MIN_PORTION_SIZE, LANG_PL } from '../../constants/constants.js';
+import {
+  MIN_PORTION_SIZE,
+  LANG_PL,
+  PORTION_CONFIRM_TITLE,
+  PORTION_CONFIRM_TEXT,
+} from '../../constants/constants.js';
 import initPortionForm from './initPortionForm.js';
 import { generatePortionResult } from './generatePortionResult.js';
+import handleModalLogic from '../modal/handleModalLogic.js';
 import {
   getFromLocalStorage,
   saveToLocalStorage,
@@ -18,6 +24,7 @@ const generatePortionForm = () => {
   const materialInput = document.getElementById('material-input');
   const rawMaterialInput = document.getElementById('raw-material-input');
   const formButtonClear = document.querySelector('.form-button-clear');
+  const { handleOpen } = handleModalLogic();
 
   pristine.addMessages('pl', LANG_PL);
   pristine.setLocale('pl');
@@ -88,12 +95,17 @@ const generatePortionForm = () => {
     form.reset();
     const filteredData = formData.filter((item) => item.uid !== index);
     saveToLocalStorage('portionFormData', JSON.stringify(filteredData));
-    // initPortionForm();
     generatePortionResult(index);
   }
 
   generatePortionResult(index);
-  formButtonClear.addEventListener('click', resetForm);
+  formButtonClear.addEventListener('click', () => {
+    handleOpen(
+      PORTION_CONFIRM_TITLE,
+      PORTION_CONFIRM_TEXT,
+      resetForm,
+    );
+  });
 };
 
 export default generatePortionForm;
