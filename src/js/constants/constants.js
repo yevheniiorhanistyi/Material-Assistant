@@ -22,8 +22,12 @@ export const LANG_PL = {
   maxlength: `Długość tego pola musi być < ${1}`,
   minlength: `Długość tego pola musi być > ${1}`,
   min: `Minimalna wartość dla tego pola to ${1}`,
-  max: `Maksymalna wartość dla tego pola to ${1}`,
+  max: `Maksymalna wartość dla tego pola ${100}`,
   pattern: 'Proszę dopasować żądany format',
   equals: 'Dwa pola nie są takie same',
   default: 'Proszę wprowadzić poprawną wartość',
 };
+
+export const PORTION_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wprowadzone dane?';
+export const PORTION_CONFIRM_TEXT = 'Wprowadzone dane w formularzu na tej stronie zostaną usunięte.';
+export const PORTION_TAB_CONFIRM_TEXT = 'Wprowadzone dane w tabelach na wszystkich wcześniej utworzonych arkuszach zostaną usunięte.';
