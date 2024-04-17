@@ -4,10 +4,12 @@ import {
   LANG_PL,
   PORTION_CONFIRM_TITLE,
   PORTION_CONFIRM_TEXT,
+  SNACKBAR_VARIANTS,
 } from '../../constants/constants.js';
 import initPortionForm from './initPortionForm.js';
 import { generatePortionResult } from './generatePortionResult.js';
 import handleModalLogic from '../modal/handleModalLogic.js';
+import showSnackbar from '../snackbar/showSnackbar.js';
 import {
   getFromLocalStorage,
   saveToLocalStorage,
@@ -96,15 +98,13 @@ const generatePortionForm = () => {
     const filteredData = formData.filter((item) => item.uid !== index);
     saveToLocalStorage('portionFormData', JSON.stringify(filteredData));
     generatePortionResult(index);
+    showSnackbar('Formularz pomyślnie wyczyszczony!', SNACKBAR_VARIANTS.success);
   }
 
   generatePortionResult(index);
+
   formButtonClear.addEventListener('click', () => {
-    handleOpen(
-      PORTION_CONFIRM_TITLE,
-      PORTION_CONFIRM_TEXT,
-      resetForm,
-    );
+    handleOpen(PORTION_CONFIRM_TITLE, PORTION_CONFIRM_TEXT, resetForm);
   });
 };
 
