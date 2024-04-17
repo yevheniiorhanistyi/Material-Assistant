@@ -10,9 +10,9 @@ const initModal = () => {
     <h2 class="modal__title"></h2>
     <p class="modal__text"></p>
   </div>
-  <div class="modal__actions">
-    <button class="modal-button" id="modal-button-cancel">Anuluj</button>
-    <button class="modal-button" id="modal-button-confirm">Ok</button>
+  <div class="actions-group">
+    <button class="actions-group__button" id="modal-button-cancel">Anuluj</button>
+    <button class="actions-group__button" id="modal-button-confirm">Ok</button>
   </div>
   `;
 
