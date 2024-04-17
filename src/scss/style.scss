@@ -34,11 +34,56 @@ body {
 #root {
   display: flex;
   flex-direction: column;
+  position: relative;
+  min-height: 100vh;
 }
 
 .container {
   width: 100%;
   margin: 0 auto;
+}
+
+.actions-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  padding: 8px;
+
+  &__button {
+    min-width: 64px;
+    line-height: 1.75;
+    text-transform: uppercase;
+    color: $font-accent-color;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    &:nth-child(2) {
+      margin-left: 8px;
+    }
+
+    &:hover {
+      background-color: rgba(25, 118, 210, 0.04);
+    }
+
+    &:active {
+      background-color: rgba(25, 118, 210, 0.12);
+    }
+  }
+}
+
+.common-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loader-container,
+.error-container {
+  @extend .common-container;
 }
 
 .common-button {
@@ -59,7 +104,7 @@ body {
 .icon-button,
 .tab-button,
 .form-button-calculate,
-.modal-button {
+.actions-group__button {
   @extend .common-button;
 }
 
@@ -458,6 +503,7 @@ body {
 }
 
 /* === / Custom context menu === */
+
 /* ===  Modal === */
 
 .backdrop {
@@ -510,39 +556,8 @@ body {
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.00938em;
-    color: rgba(0, 0, 0, 0.6);
-    ;
+    color: $font-text-color ;
     padding: 0 24px 20px;
-  }
-
-  &__actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex: 0 0 auto;
-    padding: 8px;
-  }
-
-  &-button {
-    min-width: 64px;
-    line-height: 1.75;
-    text-transform: uppercase;
-    color: $font-accent-color;
-    padding: 6px 8px;
-    border-radius: 4px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-
-    &:nth-child(2) {
-      margin-left: 8px;
-    }
-
-    &:hover {
-      background-color: rgba(25, 118, 210, 0.04);
-    }
-
-    &:active {
-      background-color: rgba(25, 118, 210, 0.12);
-    }
   }
 
   &-open {
@@ -553,6 +568,234 @@ body {
 }
 
 /* === / Modal === */
+
+
+/* ===  Comments === */
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 600px;
+  position: absolute;
+  right: 100px;
+  bottom: 30px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: visibility .2s linear, opacity .2s linear, transform .2s linear;
+
+
+  &-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    flex: 0 0 auto;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &-content {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 16px 24px;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__textarea {
+    max-width: 500px;
+    min-height: 112px;
+    resize: none;
+    padding: 10px 24px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .actions-group__button {
+    background-color: #fff;
+
+    &:hover {
+      background-color: rgba(25, 118, 210, 0.04);
+    }
+
+    &:active {
+      background-color: rgba(25, 118, 210, 0.12);
+    }
+  }
+
+  &-button {
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    transition: background-color .2s linear;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    background-color: $bg-button;
+    z-index: 1000;
+
+    &:hover {
+      background-color: $bg-button-hover;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  .comment {
+    display: flex;
+    flex-direction: column;
+
+    &__time {
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      color: $font-text-color;
+      margin-bottom: 10px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        width: 33%;
+        height: 1px;
+        background-color: $border-color;
+        content: '';
+      }
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 998;
+  }
+}
+
+.open-comments {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === / Comments === */
+
+/* === Loader === */
+
+.loader {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+
+  .circle-wrapper {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    animation: 1.4s linear 0s infinite normal none running rotate;
+
+    .circle {
+      stroke: $font-accent-color;
+      stroke-dasharray: 80px, 200px;
+      stroke-dashoffset: 0;
+      animation: 1.4s ease-in-out 0s infinite normal none running circle;
+    }
+  }
+}
+
+/* === / Loader === */
+
+/* ===  ErrorMessage === */
+
+.error {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: $error-color;
+  animation: blink 1s infinite alternate;
+
+  &__icon {
+    width: 45px;
+    height: 45px;
+    fill: $error-color;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+
+/* === / ErrorMessage === */
+
+/* === Snackbar === */
+
+.snackbar-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  position: fixed;
+  left: 20px;
+  bottom: 14px;
+  z-index: 1400;
+  pointer-events: none;
+  max-width: 800px;
+
+  .snackbar {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin: 6px 0;
+    padding: 12px 20px;
+    border-radius: 4px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+
+    animation: fadeIn 0.5s ease forwards, fadeOut 0.5s ease forwards 2.5s;
+
+    &__icon {
+      font-size: 20px;
+      margin-inline-end: 8px;
+      user-select: none;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      fill: currentcolor;
+      flex-shrink: 0;
+    }
+
+    &--success {
+      background-color: $success-color;
+    }
+
+    &--error {
+      background-color: $error-color;
+    }
+  }
+}
+
+
+/* === / Snackbar === */
 
 .show {
   opacity: 1;
