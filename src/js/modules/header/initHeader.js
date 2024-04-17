@@ -7,7 +7,7 @@ const initHeader = () => {
   headerEl.innerHTML = `
   <div class="container">
     <div class="header__menu">
-      <h1 class="header__title">Kalkulator porcji pod stan pełnego BB</h1>
+      <h1 class="header__title">Kalkulator porcji pod stan surowca</h1>
       <div class="button-wrapper">
         <button class="icon-button">
           <svg class="icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="NotificationsIcon"
