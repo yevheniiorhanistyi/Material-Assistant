@@ -7,18 +7,6 @@ const handleModalLogic = () => {
   const buttonOpen = modal.querySelector('#modal-button-confirm');
   const buttonClose = modal.querySelector('#modal-button-cancel');
 
-  const handleCloseOnce = () => {
-    buttonClose.removeEventListener('click', handleCloseOnce);
-    handleClose();
-  };
-
-  const handleConfirmOnce = (callback) => {
-    buttonOpen.removeEventListener('click', handleConfirmOnce);
-    buttonClose.removeEventListener('click', handleCloseOnce);
-    handleClose();
-    callback();
-  };
-
   const handleOpen = (title, text, callback) => {
     modalTitle.innerHTML = title;
     modalText.innerHTML = text;
@@ -27,8 +15,22 @@ const handleModalLogic = () => {
     modal.classList.add('modal-open');
     body.classList.add('overflow-hidden');
 
+    const handleConfirmOnce = () => {
+      buttonOpen.removeEventListener('click', handleConfirmOnce);
+      buttonClose.removeEventListener('click', handleCloseOnce);
+      handleClose();
+      callback();
+    };
+
+    const handleCloseOnce = () => {
+      backdrop.removeEventListener('click', handleCloseOnce);
+      buttonOpen.removeEventListener('click', handleConfirmOnce);
+      buttonClose.removeEventListener('click', handleCloseOnce);
+      handleClose();
+    };
+
     buttonClose.addEventListener('click', handleCloseOnce);
-    buttonOpen.addEventListener('click', () => handleConfirmOnce(callback));
+    buttonOpen.addEventListener('click', handleConfirmOnce);
     backdrop.addEventListener('click', handleCloseOnce);
   };
 
