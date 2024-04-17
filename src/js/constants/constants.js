@@ -28,6 +28,14 @@ export const LANG_PL = {
   default: 'Proszę wprowadzić poprawną wartość',
 };
 
+export const SNACKBAR_VARIANTS = {
+  success: 'success',
+  error: 'error',
+  warning: 'warning',
+  info: 'info',
+};
+
 export const PORTION_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wprowadzone dane?';
 export const PORTION_CONFIRM_TEXT = 'Wprowadzone dane w formularzu na tej stronie zostaną usunięte.';
-export const PORTION_TAB_CONFIRM_TEXT = 'Wprowadzone dane w tabelach na wszystkich wcześniej utworzonych arkuszach zostaną usunięte.';
+export const PORTION_TAB_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wszystkie wprowadzone dane?';
+export const PORTION_TAB_CONFIRM_TEXT = 'Wprowadzone dane w formularzach na wszystkich wcześniej utworzonych arkuszach zostaną usunięte.';
