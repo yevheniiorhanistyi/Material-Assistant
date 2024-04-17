@@ -2,8 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   MAX_PORTION_TABS,
   INITIAL_TABS,
-  PORTION_CONFIRM_TITLE,
+  PORTION_TAB_CONFIRM_TITLE,
   PORTION_TAB_CONFIRM_TEXT,
+  SNACKBAR_VARIANTS,
 } from '../../constants/constants.js';
 import {
   createElement,
@@ -12,6 +13,7 @@ import {
   removeFromLocalStorage,
 } from '../../utils/index.js';
 import handleModalLogic from '../modal/handleModalLogic.js';
+import showSnackbar from '../snackbar/showSnackbar.js';
 
 const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
   const tabsList = document.querySelector('.tabs-list');
@@ -75,11 +77,13 @@ const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
     const overlay = document.createElement('div');
     overlay.classList.add('custom-menu__overlay');
 
-    overlay.addEventListener('click', function closeMenu() {
+    const closeMenu = () => {
       menu.remove();
       overlay.remove();
       overlay.removeEventListener('click', closeMenu);
-    });
+    };
+
+    overlay.addEventListener('click', closeMenu);
 
     menu.querySelector('.delete').addEventListener('click', () => {
       const listItem = tab.closest('.tabs-list__item');
@@ -92,8 +96,7 @@ const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
         saveToLocalStorage(tabsStorageKey, JSON.stringify(tabsData));
         handleTabClick(firstTab);
       }
-      menu.remove();
-      overlay.remove();
+      closeMenu();
     });
 
     menu.querySelector('.rename').addEventListener('click', () => {
@@ -193,6 +196,7 @@ const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
     });
     saveToLocalStorage(tabsStorageKey, JSON.stringify(tabsData));
     callback();
+    showSnackbar('Dane pomyślnie wyczyszczone!', SNACKBAR_VARIANTS.success);
   };
 
   createTabButton.addEventListener('click', () => {
@@ -201,7 +205,7 @@ const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
   });
 
   reloadAllTabsButton.addEventListener('click', () => {
-    handleOpen(PORTION_CONFIRM_TITLE, PORTION_TAB_CONFIRM_TEXT, reloadAllTabs);
+    handleOpen(PORTION_TAB_CONFIRM_TITLE, PORTION_TAB_CONFIRM_TEXT, reloadAllTabs);
   });
 };
 
