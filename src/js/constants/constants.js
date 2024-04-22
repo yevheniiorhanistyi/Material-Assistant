@@ -39,3 +39,7 @@ export const PORTION_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wprowadzone d
 export const PORTION_CONFIRM_TEXT = 'Wprowadzone dane w formularzu na tej stronie zostaną usunięte.';
 export const PORTION_TAB_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wszystkie wprowadzone dane?';
 export const PORTION_TAB_CONFIRM_TEXT = 'Wprowadzone dane w formularzach na wszystkich wcześniej utworzonych arkuszach zostaną usunięte.';
+
+export const NOTIFICATIONS = ['Aktualna wersja aplikacji: 1.0.0', `W przypadku wystąpienia problemów z funkcjonowaniem aplikacji lub gdy masz sugestie dotyczące jej ulepszeń,
+zachęcam do pozostawienia komentarza lub bezpośredniego skontaktowania się ze mną. Twoja opinia jest dla mnie
+bardzo ważna! Dziękuję za korzystanie z tego narzędzia! Z najlepszymi życzeniami, Yevhenii😊`];
