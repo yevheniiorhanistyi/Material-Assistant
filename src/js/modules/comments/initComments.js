@@ -1,9 +1,9 @@
 import { createElement, clearInputField } from '../../utils/index.js';
 import generateComments, { addCommentToDatabase } from './generateComments.js';
 
-const initCommentsSection = () => {
-  const rootEl = document.querySelector('#root');
-  const commentsSectionEl = createElement('section', 'comments');
+const initComments = () => {
+  const mainEl = document.querySelector('.main');
+  const commentsSectionEl = createElement('div', 'comments');
   const commentBtnEl = createElement('button', 'icon-button comments-button');
   const actionsGroupEl = createElement('div', 'actions-group');
   const closeBtnEl = createElement('button', 'actions-group__button');
@@ -22,7 +22,7 @@ const initCommentsSection = () => {
     closeBtnEl.addEventListener('click', closeComments);
     sendBtnEl.addEventListener('click', addCommentToDatabase);
     overlay.addEventListener('click', closeComments);
-    rootEl.append(overlay);
+    mainEl.append(overlay);
   };
 
   const closeComments = () => {
@@ -97,7 +97,7 @@ const initCommentsSection = () => {
   actionsGroupEl.append(closeBtnEl, sendBtnEl);
   commentsSectionEl.append(actionsGroupEl);
 
-  rootEl.append(commentsSectionEl, commentBtnEl);
+  mainEl.append(commentsSectionEl, commentBtnEl);
 };
 
-export default initCommentsSection;
+export default initComments;
