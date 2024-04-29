@@ -1,9 +1,9 @@
 import { createElement } from '../../utils/index.js';
 
 const initSnackbarContainer = () => {
-  const rootEl = document.querySelector('#root');
+  const mainEl = document.querySelector('.main');
   const snackbarContainerEl = createElement('div', 'snackbar-container');
-  rootEl.append(snackbarContainerEl);
+  mainEl.append(snackbarContainerEl);
 };
 
 export default initSnackbarContainer;

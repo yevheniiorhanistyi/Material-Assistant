@@ -1,12 +1,11 @@
 import { createElement } from '../../utils/index.js';
 
 const initPortionForm = () => {
-  const rootEl = document.querySelector('#root');
-  const existingMain = rootEl.querySelector('.main');
+  const mainEl = document.querySelector('.main');
+  const existingForm = mainEl.querySelector('.portion-calculate-form');
 
-  if (existingMain) { existingMain.remove(); }
+  if (existingForm) { existingForm.remove(); }
 
-  const mainEl = createElement('main', 'main');
   const formEl = createElement('form', 'form portion-calculate-form');
 
   formEl.setAttribute('id', 'portion-calculate-form');
@@ -61,7 +60,6 @@ const initPortionForm = () => {
   `;
 
   mainEl.append(formEl);
-  rootEl.append(mainEl);
 };
 
 export default initPortionForm;
