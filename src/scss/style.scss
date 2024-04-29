@@ -55,7 +55,7 @@ body {
     min-width: 64px;
     line-height: 1.75;
     text-transform: uppercase;
-    color: $font-accent-color;
+    color: $primary;
     padding: 6px 8px;
     border-radius: 4px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -146,7 +146,11 @@ body {
   flex-shrink: 0;
   width: 100%;
   min-height: 48px;
-  background-color: $bg-button;
+  background-color: $primary;
+}
+
+.header {
+  flex-direction: column;
 }
 
 .header__menu,
@@ -248,6 +252,7 @@ body {
 .main {
   flex: 1;
   padding: 48px 32px;
+  position: relative;
 }
 
 .form {
@@ -271,10 +276,6 @@ body {
   @media (max-width:$laptop-screen) {
     flex-direction: column;
   }
-}
-
-.portion-calculate-form {
-  animation: fadeIn 0.5s ease forwards;
 }
 
 .form-group {
@@ -302,13 +303,13 @@ body {
   vertical-align: top;
 
   &:focus-within label {
-    color: $font-accent-color;
+    color: $primary;
   }
 
   &:focus-within input,
   &:focus-within select {
     border-color: transparent;
-    outline: 2px solid $font-accent-color;
+    outline: 2px solid $primary;
   }
 }
 
@@ -452,9 +453,6 @@ body {
   border-radius: 8px;
   box-shadow: $box-shadow-elevation-1;
   overflow-x: auto;
-  opacity: 0;
-  animation: fadeIn 0.5s ease forwards;
-  animation-delay: 0.2s;
 }
 
 .portion-result-table {
@@ -824,7 +822,7 @@ body {
     animation: 1.4s linear 0s infinite normal none running rotate;
 
     .circle {
-      stroke: $font-accent-color;
+      stroke: $primary;
       stroke-dasharray: 80px, 200px;
       stroke-dashoffset: 0;
       animation: 1.4s ease-in-out 0s infinite normal none running circle;
