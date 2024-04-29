@@ -1,7 +1,7 @@
 import { createElement } from '../../utils/index.js';
 
 const initModal = () => {
-  const rootEl = document.querySelector('#root');
+  const mainEl = document.querySelector('.main');
   const backdropEl = createElement('div', 'backdrop');
   const modalEl = createElement('div', 'modal');
 
@@ -16,7 +16,7 @@ const initModal = () => {
   </div>
   `;
 
-  rootEl.append(backdropEl, modalEl);
+  mainEl.append(backdropEl, modalEl);
 };
 
 export default initModal;
