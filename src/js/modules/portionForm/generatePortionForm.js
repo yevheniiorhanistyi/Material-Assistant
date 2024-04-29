@@ -57,7 +57,7 @@ const generatePortionForm = () => {
     if (currentForm) fillFormWithData(currentForm);
   }
 
-  form.addEventListener('submit', (e) => {
+  const onSubmitForm = (e) => {
     e.preventDefault();
     const isValid = pristine.validate();
     if (isValid) {
@@ -91,21 +91,24 @@ const generatePortionForm = () => {
       saveToLocalStorage('portionFormData', JSON.stringify(formData));
       generatePortionResult(index);
     }
-  });
+  };
 
-  function resetForm() {
+  const resetForm = () => {
     form.reset();
     const filteredData = formData.filter((item) => item.uid !== index);
     saveToLocalStorage('portionFormData', JSON.stringify(filteredData));
     generatePortionResult(index);
     showSnackbar('Formularz pomyślnie wyczyszczony!', SNACKBAR_VARIANTS.success);
-  }
+  };
+
+  const handleFormButtonClear = () => {
+    handleOpen(PORTION_CONFIRM_TITLE, PORTION_CONFIRM_TEXT, resetForm);
+  };
 
   generatePortionResult(index);
 
-  formButtonClear.addEventListener('click', () => {
-    handleOpen(PORTION_CONFIRM_TITLE, PORTION_CONFIRM_TEXT, resetForm);
-  });
+  form.addEventListener('submit', onSubmitForm);
+  formButtonClear.addEventListener('click', handleFormButtonClear);
 };
 
 export default generatePortionForm;
