@@ -556,7 +556,7 @@ body {
   min-width: 64px;
   line-height: 1.75;
   text-transform: uppercase;
-  color: #009be6;
+  color: #009be5;
   padding: 6px 8px;
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -661,6 +661,13 @@ body {
   width: 100%;
   min-height: 48px;
   background-color: #009be5;
+}
+
+.header {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .header__menu,
@@ -775,6 +782,7 @@ body {
       -ms-flex: 1;
           flex: 1;
   padding: 48px 32px;
+  position: relative;
 }
 
 .form {
@@ -813,11 +821,6 @@ body {
   }
 }
 
-.portion-calculate-form {
-  -webkit-animation: fadeIn 0.5s ease forwards;
-          animation: fadeIn 0.5s ease forwards;
-}
-
 .form-group {
   position: relative;
 }
@@ -849,13 +852,13 @@ body {
 }
 .form-fields-group:focus-within label,
 .select-group:focus-within label {
-  color: #009be6;
+  color: #009be5;
 }
 .form-fields-group:focus-within input, .form-fields-group:focus-within select,
 .select-group:focus-within input,
 .select-group:focus-within select {
   border-color: transparent;
-  outline: 2px solid #009be6;
+  outline: 2px solid #009be5;
 }
 
 .form-fields-group {
@@ -1011,11 +1014,6 @@ body {
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
           box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
   overflow-x: auto;
-  opacity: 0;
-  -webkit-animation: fadeIn 0.5s ease forwards;
-          animation: fadeIn 0.5s ease forwards;
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
 }
 
 .portion-result-table {
@@ -1410,7 +1408,7 @@ body {
           animation: 1.4s linear 0s infinite normal none running rotate;
 }
 .loader .circle-wrapper .circle {
-  stroke: #009be6;
+  stroke: #009be5;
   stroke-dasharray: 80px, 200px;
   stroke-dashoffset: 0;
   -webkit-animation: 1.4s ease-in-out 0s infinite normal none running circle;
