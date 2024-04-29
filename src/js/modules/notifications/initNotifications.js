@@ -2,7 +2,7 @@ import { NOTIFICATIONS } from '../../constants/constants.js';
 import { createElement } from '../../utils/index.js';
 
 const initNotifications = () => {
-  const rootEl = document.querySelector('#root');
+  const headerEl = document.querySelector('.header');
   const notificationsEl = createElement('div', 'notifications');
 
   NOTIFICATIONS.forEach((text) => {
@@ -11,7 +11,7 @@ const initNotifications = () => {
     notificationsEl.append(notificationText);
   });
 
-  rootEl.append(notificationsEl);
+  headerEl.append(notificationsEl);
 };
 
 export default initNotifications;

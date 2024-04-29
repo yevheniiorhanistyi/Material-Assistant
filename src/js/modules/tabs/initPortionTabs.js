@@ -1,8 +1,8 @@
 import { createElement } from '../../utils/index.js';
 
 const initPortionTabs = () => {
-  const rootEl = document.querySelector('#root');
-  const tabsEl = createElement('section', 'tabs');
+  const headerEl = document.querySelector('.header');
+  const tabsEl = createElement('div', 'tabs');
 
   tabsEl.innerHTML = `
   <ul class="tabs-list"></ul>
@@ -23,7 +23,7 @@ const initPortionTabs = () => {
     </button>
   </div>
 `;
-  rootEl.append(tabsEl);
+  headerEl.append(tabsEl);
 };
 
 export default initPortionTabs;
