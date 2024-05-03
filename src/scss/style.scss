@@ -573,6 +573,95 @@ body {
 
 /* === / Custom context menu === */
 
+/* ===  Drawer === */
+
+.drawer {
+  width: 250px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1200;
+  visibility: hidden;
+
+  box-shadow: $box-shadow-elevation-3;
+  background-color: $bg-drawer;
+
+  transform: translateX(250px);
+  transition: transform .2s linear, visibility .2s linear;
+
+  .version,
+  .utils {
+    width: 100%;
+    display: flex;
+
+    border-bottom: 1px solid darken($border-color, 50%);
+  }
+
+  .version {
+    padding: 15px 20px;
+
+    &__text {
+      margin-left: 10px;
+      color: $font-main-color;
+    }
+  }
+
+  .utils {
+    flex-direction: column;
+    padding: 15px 0;
+
+    &__title {
+      font-weight: 400;
+      font-size: 1.1rem;
+      justify-content: center;
+      color: $font-main-color;
+      padding: 0 20px;
+      margin-bottom: 10px;
+    }
+
+    &-list {
+      list-style: none;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        padding: 5px 30px;
+        cursor: pointer;
+        transition: background-color .2s linear;
+
+        &:hover {
+          color: $primary;
+          background-color: $bg-button-actions-hover;
+        }
+
+        &:active {
+          background-color: $bg-button-actions-active;
+        }
+      }
+
+      .selected {
+        background-color: $bg-button-actions-active;
+      }
+
+      &__text {
+        color: $font-main-color;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.drawer-open {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* === /Drawer === */
+
 /* ===  Modal === */
 
 .backdrop {
