@@ -35,6 +35,17 @@ export const SNACKBAR_VARIANTS = {
   info: 'info',
 };
 
+export const FORMS = {
+  portionForm: {
+    title: 'Kalkulator porcji pod stan surowca',
+    id: 'portionForm',
+  },
+  orderForm: {
+    title: 'Kalkulator zamówienia',
+    id: 'orderForm',
+  },
+};
+
 export const PORTION_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wprowadzone dane?';
 export const PORTION_CONFIRM_TEXT = 'Wprowadzone dane w formularzu na tej stronie zostaną usunięte.';
 export const PORTION_TAB_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wszystkie wprowadzone dane?';
@@ -50,7 +61,7 @@ export const CURRENT_VERSION = {
 
 export const UTILS_NAVIGATION = [
   {
-    id: 'portion-calculator',
+    id: 'portionForm',
     icon: `<svg class="icon utils-list__icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"
     data-testid="FormatListBulletedIcon" tabindex="-1" title="FormatListBulleted">
     <path
@@ -60,7 +71,7 @@ export const UTILS_NAVIGATION = [
     text: 'Porcji',
   },
   {
-    id: 'order-calculator',
+    id: 'orderForm',
     icon: `<svg class="icon utils-list__icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"
     data-testid="SettingsIcon">
     <path

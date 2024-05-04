@@ -1,13 +1,15 @@
-import { createElement } from '../../utils/index.js';
+import { createElement, getFromLocalStorage } from '../../utils/index.js';
+import { FORMS } from '../../constants/constants.js';
 
 const initHeader = () => {
   const rootEl = document.querySelector('#root');
   const headerEl = createElement('header', 'header');
+  const currentForm = getFromLocalStorage('currentForm') || 'portionForm';
 
   headerEl.innerHTML = `
   <div class="container">
     <div class="header__menu">
-      <h1 class="header__title">Kalkulator porcji pod stan surowca</h1>
+      <h1 class="header__title">${FORMS[currentForm].title}</h1>
       <div class="button-wrapper">
         <button class="icon-button burger-button">
         <svg class="icon"

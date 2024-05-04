@@ -1,7 +1,15 @@
-import { createElement } from '../../utils/index.js';
-import { CURRENT_VERSION, UTILS_NAVIGATION, UTILS_CONFIG } from '../../constants/constants.js';
+import { createElement, getFromLocalStorage } from '../../utils/index.js';
+import {
+  CURRENT_VERSION,
+  UTILS_NAVIGATION,
+  UTILS_CONFIG,
+  FORMS,
+} from '../../constants/constants.js';
+import handleDrawer from './handleDrawer.js';
+import switchForm from '../forms/switchForm.js';
 
 const initDrawer = () => {
+  const currentForm = getFromLocalStorage('currentForm') || 'portionForm';
   const mainEl = document.querySelector('.main');
   const drawerEl = createElement('div', 'drawer');
   const versionEl = createElement('div', 'version');
@@ -26,6 +34,8 @@ const initDrawer = () => {
     const itemText = createElement('p', 'utils-list__text');
     itemText.innerHTML = item.text;
 
+    if (FORMS[currentForm].id === item.id) listItemEl.classList.add('selected');
+    listItemEl.addEventListener('click', () => switchForm(item.id));
     listItemEl.append(itemText);
     utilsNavigationListEl.append(listItemEl);
   });
@@ -46,6 +56,7 @@ const initDrawer = () => {
   utilsConfigEl.append(utilsConfigTitleEl, utilsConfigListEl);
   drawerEl.append(versionEl, utilsNavigationEl, utilsConfigEl);
   mainEl.append(drawerEl);
+  handleDrawer();
 };
 
 export default initDrawer;

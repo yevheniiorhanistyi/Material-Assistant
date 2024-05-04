@@ -1,8 +1,8 @@
-import { createElement } from '../../utils/index.js';
+import { createElement } from '../../../utils/index.js';
 
 const initPortionForm = () => {
-  const mainEl = document.querySelector('.main');
-  const existingForm = mainEl.querySelector('.portion-calculate-form');
+  const formsWrapperEl = document.querySelector('.forms-wrapper');
+  const existingForm = formsWrapperEl.querySelector('.portion-calculate-form');
 
   if (existingForm) { existingForm.remove(); }
 
@@ -59,7 +59,7 @@ const initPortionForm = () => {
 </div>
   `;
 
-  mainEl.append(formEl);
+  formsWrapperEl.append(formEl);
 };
 
 export default initPortionForm;

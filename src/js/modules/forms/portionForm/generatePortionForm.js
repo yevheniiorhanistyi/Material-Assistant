@@ -5,16 +5,16 @@ import {
   PORTION_CONFIRM_TITLE,
   PORTION_CONFIRM_TEXT,
   SNACKBAR_VARIANTS,
-} from '../../constants/constants.js';
+} from '../../../constants/constants.js';
 import initPortionForm from './initPortionForm.js';
 import { generatePortionResult } from './generatePortionResult.js';
-import handleModalLogic from '../modal/handleModalLogic.js';
-import showSnackbar from '../snackbar/showSnackbar.js';
+import handleModalLogic from '../../modal/handleModalLogic.js';
+import showSnackbar from '../../snackbar/showSnackbar.js';
 import {
   getFromLocalStorage,
   saveToLocalStorage,
   findFormByUid,
-} from '../../utils/index.js';
+} from '../../../utils/index.js';
 
 const generatePortionForm = () => {
   initPortionForm();
