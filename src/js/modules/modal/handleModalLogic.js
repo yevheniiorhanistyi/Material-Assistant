@@ -1,7 +1,7 @@
 const handleModalLogic = () => {
   const body = document.querySelector('body');
   const backdrop = document.querySelector('.backdrop');
-  const modal = document.querySelector('.modal');
+  const modal = document.querySelector('.custom-modal');
   const modalTitle = modal.querySelector('.modal__title');
   const modalText = modal.querySelector('.modal__text');
   const buttonOpen = modal.querySelector('#modal-button-confirm');
@@ -12,7 +12,7 @@ const handleModalLogic = () => {
     modalText.innerHTML = text;
 
     backdrop.classList.add('backdrop-show');
-    modal.classList.add('modal-open');
+    modal.classList.add('custom-modal--open');
     body.classList.add('overflow-hidden');
 
     const handleConfirmOnce = () => {
@@ -36,7 +36,7 @@ const handleModalLogic = () => {
 
   const handleClose = () => {
     backdrop.classList.remove('backdrop-show');
-    modal.classList.remove('modal-open');
+    modal.classList.remove('custom-modal--open');
     body.classList.remove('overflow-hidden');
   };
 

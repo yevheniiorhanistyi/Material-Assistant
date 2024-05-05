@@ -7,7 +7,7 @@ const initHeader = () => {
   const currentForm = getFromLocalStorage('currentForm') || 'portionForm';
 
   headerEl.innerHTML = `
-  <div class="container">
+  <div class="container-fluid">
     <div class="header__menu">
       <h1 class="header__title">${FORMS[currentForm].title}</h1>
       <div class="button-wrapper">

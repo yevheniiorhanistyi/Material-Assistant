@@ -3,10 +3,10 @@ import { createElement } from '../../utils/index.js';
 const initModal = () => {
   const mainEl = document.querySelector('.main');
   const backdropEl = createElement('div', 'backdrop');
-  const modalEl = createElement('div', 'modal');
+  const modalEl = createElement('div', 'custom-modal');
 
   modalEl.innerHTML = `
-  <div class="modal-content">
+  <div>
     <h2 class="modal__title"></h2>
     <p class="modal__text"></p>
   </div>
