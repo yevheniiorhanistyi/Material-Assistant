@@ -2,9 +2,10 @@ import Pristine from 'pristinejs';
 import {
   MIN_PORTION_SIZE,
   LANG_PL,
-  PORTION_CONFIRM_TITLE,
-  PORTION_CONFIRM_TEXT,
+  CONFIRM_TITLE,
+  CONFIRM_TEXT,
   SNACKBAR_VARIANTS,
+  FIELD_MAP,
 } from '../../../constants/constants.js';
 import initPortionForm from './initPortionForm.js';
 import { generatePortionResult } from './generatePortionResult.js';
@@ -14,6 +15,8 @@ import {
   getFromLocalStorage,
   saveToLocalStorage,
   findFormByUid,
+  fillFormWithData,
+  isDataChanged,
 } from '../../../utils/index.js';
 
 const generatePortionForm = () => {
@@ -40,21 +43,7 @@ const generatePortionForm = () => {
   if (formData && index) {
     const currentForm = findFormByUid(formData, index);
 
-    const fillFormWithData = (data) => {
-      const fieldMap = {
-        'material-input': data.percentage,
-        'raw-material-input': data.totalRawMaterial,
-        'mixer-size-select': data.mixerSize,
-        'grammage-select': data.grammage,
-      };
-
-      Object.keys(fieldMap).forEach((fieldId) => {
-        const fieldElement = document.querySelector(`#${fieldId}`);
-        if (fieldElement) fieldElement.value = fieldMap[fieldId];
-      });
-    };
-
-    if (currentForm) fillFormWithData(currentForm);
+    if (currentForm) fillFormWithData(currentForm, FIELD_MAP.portionForm);
   }
 
   const onSubmitForm = (e) => {
@@ -69,16 +58,7 @@ const generatePortionForm = () => {
         grammage: Number(document.getElementById('grammage-select').value),
       };
 
-      let existingIndex = -1;
-
-      for (let i = 0; i < formData.length; i += 1) {
-        if (formData[i].uid === index) {
-          existingIndex = i;
-          break;
-        }
-      }
-
-      const isChanged = JSON.stringify(formData[existingIndex]) === JSON.stringify(newFormData);
+      const { isChanged, existingIndex } = isDataChanged(formData, newFormData, index);
 
       if (isChanged) return;
 
@@ -102,7 +82,7 @@ const generatePortionForm = () => {
   };
 
   const handleFormButtonClear = () => {
-    handleOpen(PORTION_CONFIRM_TITLE, PORTION_CONFIRM_TEXT, resetForm);
+    handleOpen(CONFIRM_TITLE, CONFIRM_TEXT, resetForm);
   };
 
   generatePortionResult(index);
