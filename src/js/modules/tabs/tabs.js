@@ -2,8 +2,8 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   MAX_PORTION_TABS,
   INITIAL_TABS,
-  PORTION_TAB_CONFIRM_TITLE,
-  PORTION_TAB_CONFIRM_TEXT,
+  TAB_CONFIRM_TITLE,
+  TAB_CONFIRM_TEXT,
   SNACKBAR_VARIANTS,
 } from '../../constants/constants.js';
 import {
@@ -207,7 +207,7 @@ const handleTabLogic = (tabsStorageKey, formDataKey, callback) => {
   });
 
   reloadAllTabsButton.addEventListener('click', () => {
-    handleOpen(PORTION_TAB_CONFIRM_TITLE, PORTION_TAB_CONFIRM_TEXT, reloadAllTabs);
+    handleOpen(TAB_CONFIRM_TITLE, TAB_CONFIRM_TEXT, reloadAllTabs);
   });
 };
 

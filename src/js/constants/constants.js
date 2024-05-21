@@ -46,10 +46,31 @@ export const FORMS = {
   },
 };
 
-export const PORTION_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wprowadzone dane?';
-export const PORTION_CONFIRM_TEXT = 'Wprowadzone dane w formularzu na tej stronie zostaną usunięte.';
-export const PORTION_TAB_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wszystkie wprowadzone dane?';
-export const PORTION_TAB_CONFIRM_TEXT = 'Wprowadzone dane w formularzach na wszystkich wcześniej utworzonych arkuszach zostaną usunięte.';
+export const FIELD_MAP = {
+  portionForm: {
+    grammage: '#grammage-select',
+    mixerSize: '#mixer-size-select',
+    percentage: '#material-input',
+    totalRawMaterial: '#raw-material-input',
+  },
+  orderForm: {
+    RTPJ: '#RTPJ',
+    materialDescription: '.material-description',
+    materialIndex: '.material-index',
+    materialPercentage: '.material-percentage',
+    materialQuantity: '.material-quantity',
+    requiredQuantity: '.required-quantity',
+    productionQuantity: '#production-quantity',
+    currentMixer: '#current-mixer',
+    mixerSize: '#mixer-size-select',
+    grammage: '#grammage-select',
+  },
+};
+
+export const CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wprowadzone dane?';
+export const CONFIRM_TEXT = 'Wprowadzone dane w formularzu na tej stronie zostaną usunięte.';
+export const TAB_CONFIRM_TITLE = 'Czy na pewno chcesz usunąć wszystkie wprowadzone dane?';
+export const TAB_CONFIRM_TEXT = 'Wprowadzone dane w formularzach na wszystkich wcześniej utworzonych arkuszach zostaną usunięte.';
 
 export const CURRENT_VERSION = {
   icon: `<svg class="icon version__icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"
