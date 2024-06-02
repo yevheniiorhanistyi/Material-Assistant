@@ -1,6 +1,6 @@
 import { createElement } from '../../utils/index.js';
 
-const initPortionTabs = () => {
+const initTabs = () => {
   const headerEl = document.querySelector('.header');
   const tabsEl = createElement('div', 'tabs');
 
@@ -26,4 +26,4 @@ const initPortionTabs = () => {
   headerEl.append(tabsEl);
 };
 
-export default initPortionTabs;
+export default initTabs;

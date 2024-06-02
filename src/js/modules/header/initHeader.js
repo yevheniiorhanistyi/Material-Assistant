@@ -1,24 +1,21 @@
-import { createElement } from '../../utils/index.js';
-import { NOTIFICATIONS } from '../../constants/constants.js';
+import { createElement, getFromLocalStorage } from '../../utils/index.js';
+import { FORMS } from '../../constants/constants.js';
 
 const initHeader = () => {
   const rootEl = document.querySelector('#root');
   const headerEl = createElement('header', 'header');
-  const notificationCount = NOTIFICATIONS.length;
+  const currentForm = getFromLocalStorage('currentForm') || 'portionForm';
 
   headerEl.innerHTML = `
-  <div class="container">
+  <div class="container-fluid">
     <div class="header__menu">
-      <h1 class="header__title">Kalkulator porcji pod stan surowca</h1>
+      <h1 class="header__title">${FORMS[currentForm].title}</h1>
       <div class="button-wrapper">
-        <button class="icon-button notifications-button">
-          <svg class="icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="NotificationsIcon"
-            tabindex="-1" title="Notifications">
-            <path
-              d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2m6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1z">
-            </path>
-          </svg>
-          ${notificationCount !== 0 ? `<span class="notifications-badge">${notificationCount}</span>` : ''}
+        <button class="icon-button burger-button">
+        <svg class="icon"
+        focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="MenuIcon" tabindex="-1" title="Menu">
+        <path d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"></path>
+        </svg>
         </button>
       </div>
     </div>

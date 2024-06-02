@@ -1,3 +1,4 @@
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import './vendor/normalize.scss';
 @import './vendor/fonts.scss';
 @import './vendor/vars.scss';
@@ -37,11 +38,6 @@ body {
   flex-direction: column;
   position: relative;
   min-height: 100vh;
-}
-
-.container {
-  width: 100%;
-  margin: 0 auto;
 }
 
 .actions-group {
@@ -136,8 +132,19 @@ body {
   outline: 0;
 }
 
-.form-button-clear .icon {
+.form-button-clear .icon,
+.form-button-convert .icon {
   fill: $bg-icon-button;
+}
+
+.bigbag-info-button {
+  position: absolute;
+  top: 3px;
+  right: 0;
+
+  .icon {
+    fill: lighten($font-text-color, 50%);
+  }
 }
 
 .header,
@@ -147,6 +154,10 @@ body {
   width: 100%;
   min-height: 48px;
   background-color: $primary;
+}
+
+.tabs {
+  padding-left: 10px;
 }
 
 .header {
@@ -159,6 +170,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 8px 24px 0;
+  margin-bottom: 0;
 }
 
 .header__title {
@@ -263,7 +275,6 @@ body {
   max-width: 1125px;
   padding: 40px 24px;
   margin: auto;
-  overflow: hidden;
   background-color: $bg-form;
   border-radius: 8px;
   box-shadow: $box-shadow-elevation-1;
@@ -378,7 +389,7 @@ body {
   display: block;
   min-width: 0px;
   width: 100%;
-  padding: 10px 30px 10px 10px;
+  padding: 10px 65px 10px 10px;
 }
 
 .form-fields-input-adornment {
@@ -386,9 +397,43 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0.00938em;
-  color: $font-text-color;
+  color: lighten($font-text-color, 10%);
   position: absolute;
   right: 12px;
+}
+
+.form-fields-input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60px;
+  height: 45px;
+  position: absolute;
+  right: 3px;
+
+  &__adornment {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    color: lighten($font-text-color, 10%);
+    padding: 0 8px 0 0;
+    margin-bottom: -4px;
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 1px;
+      height: 45px;
+      background-color: $border-color;
+      position: absolute;
+      top: -9px;
+      right: 0;
+    }
+  }
+
+  .icon-button {
+    padding: 10px 8px 11px;
+    border-radius: 0 4px 4px 0;
+  }
 }
 
 .form-select {
@@ -528,6 +573,137 @@ body {
   }
 }
 
+/* === Order form === */
+
+.table-wrapper {
+  @media (max-width: $laptop-screen) {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+}
+
+.order-calculate-form {
+  width: 100%;
+  max-width: 1188px;
+  margin: auto;
+
+  .form-fields-group {
+    min-width: 100%;
+  }
+
+  .table-responsive {
+    table {
+      min-width: 500px;
+    }
+
+  }
+
+  th {
+    width: 190px;
+    vertical-align: middle;
+    padding-left: 0;
+
+    @media (max-width:$mobile-screen) {
+      font-size: 0.9rem;
+      width: 135px;
+    }
+  }
+
+  td {
+    padding: 0;
+  }
+
+  .form-control {
+    height: 45px;
+    text-align: center;
+    transition: border-color 0.1s linear;
+    outline: transparent;
+  }
+
+
+  .form-select {
+    padding: 8px;
+    height: 45px;
+  }
+
+  .form-select,
+  .form-control {
+    border: 2px solid transparent;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    box-shadow: none;
+    border-color: $primary;
+  }
+
+  .material-quantity {
+    &:focus {
+      border-color: transparent;
+    }
+  }
+}
+
+.order-table {
+  min-width: 520px;
+}
+
+.form__group {
+  width: 100%;
+}
+
+.input-file {
+  position: relative;
+  display: block;
+}
+
+.input-file span {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  font-size: 1rem;
+  color: $font-main-color;
+  text-align: center;
+  border-radius: 8px;
+  background-color: $primary;
+  line-height: 22px;
+  width: 100%;
+  height: 45px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.input-file input[type=file] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.input-file:hover span {
+  background-color: $bg-button-hover;
+  box-shadow: $box-shadow-elevation-1;
+}
+
+.input-file:active span {
+  box-shadow: none;
+}
+
+.form-button-upload {
+  .icon {
+    fill: $primary;
+  }
+}
+
+/* === /Order form === */
+
 /* === Custom context menu === */
 
 .custom-menu {
@@ -544,6 +720,8 @@ body {
 
   &__list {
     list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   &__item {
@@ -573,6 +751,98 @@ body {
 
 /* === / Custom context menu === */
 
+/* ===  Drawer === */
+
+.drawer {
+  width: 250px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1200;
+  visibility: hidden;
+
+  box-shadow: $box-shadow-elevation-3;
+  background-color: $bg-drawer;
+
+  transform: translateX(250px);
+  transition: transform .2s linear, visibility .2s linear;
+
+  .version,
+  .utils {
+    width: 100%;
+    display: flex;
+
+    border-bottom: 1px solid darken($border-color, 50%);
+  }
+
+  .version {
+    padding: 15px 20px;
+
+    &__text {
+      margin-left: 10px;
+      margin-bottom: 0;
+      color: $font-main-color;
+    }
+  }
+
+  .utils {
+    flex-direction: column;
+    padding: 15px 0;
+
+    &__title {
+      font-weight: 400;
+      font-size: 1.1rem;
+      justify-content: center;
+      color: $font-main-color;
+      padding: 0 20px;
+      margin-bottom: 10px;
+    }
+
+    &-list {
+      padding: 0;
+      list-style: none;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        padding: 5px 30px;
+        cursor: pointer;
+        transition: background-color .2s linear;
+
+        &:hover {
+          color: $primary;
+          background-color: $bg-button-actions-hover;
+        }
+
+        &:active {
+          background-color: $bg-button-actions-active;
+        }
+      }
+
+      .selected {
+        background-color: $bg-button-actions-active;
+      }
+
+      &__text {
+        color: $font-main-color;
+        margin: 0;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.drawer-open {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* === /Drawer === */
+
 /* ===  Modal === */
 
 .backdrop {
@@ -590,7 +860,7 @@ body {
   opacity: 1;
 }
 
-.modal {
+.custom-modal {
   min-width: 320px;
   max-width: 600px;
   max-height: calc(100% - 64px);
@@ -620,7 +890,7 @@ body {
     }
   }
 
-  &__title {
+  .modal__title {
     font-family: 'Roboto-Medium', sans-serif;
     font-size: 1.25rem;
     font-weight: 500;
@@ -636,7 +906,7 @@ body {
 
   }
 
-  &__text {
+  .modal__text {
     flex: 1 1 auto;
     font-size: 1rem;
     font-weight: 400;
@@ -651,7 +921,7 @@ body {
     }
   }
 
-  &-open {
+  &--open {
     visibility: visible;
     opacity: 1;
     transform: translate(-56%, -70%);
@@ -902,47 +1172,41 @@ body {
 
 /* === / Snackbar === */
 
-/* ===  Notifications === */
 
-.notifications {
+/* ===  Custom popover === */
+
+.custom-popover {
   display: flex;
-  flex: 1 1 auto;
   flex-direction: column;
-  gap: 10px;
-  width: 300px;
-  height: 250px;
-  position: absolute;
-  right: 45px;
-  top: 40px;
+  padding: 0 10px 10px;
   background-color: $bg-form;
   border-radius: 4px;
-  box-shadow: $box-shadow-elevation-1;
-  z-index: 1000;
+  box-shadow: $box-shadow-elevation-2;
+  position: absolute;
+  bottom: -90px;
+  right: 0;
+  left: 0;
+  z-index: 101;
+
+  transform: translateY(-10px);
   visibility: hidden;
   opacity: 0;
-  overflow-y: auto;
-  padding: 16px 24px;
-  transform: translateY(-10px);
-  transition: visibility .2s linear, opacity .2s linear, transform .2s linear;
 
-  &__text {
-    font-size: .9rem;
-    line-height: 1.3;
-    color: $font-text-color;
+  transition: transform .2s linear, visibility .3s linear, opacity .3s linear;
+
+  .form-label {
+    color: $font-input-label-color;
+    margin-bottom: 0;
   }
 
-  &-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 20px;
-    height: 20px;
-    color: $font-main-color;
-    background-color: $bg-notification-badge;
-    border-radius: 10px;
-    position: absolute;
-    left: 20px;
-    top: 0;
+  .form-control {
+    height: 45px;
+
+    &:focus {
+      border-color: transparent;
+      box-shadow: none;
+      outline: 2px solid $primary;
+    }
   }
 
   &__overlay {
@@ -955,7 +1219,64 @@ body {
   }
 }
 
-/* === / Notifications === */
+.convert {
+  width: 250px;
+  height: 80px;
+}
+
+.bigbag-info {
+  width: 182px;
+  padding-top: 5px;
+  margin-bottom: 0;
+  bottom: -233px;
+
+  @media (max-width: $extra-large-screen) {
+    display: none;
+    top: -223px;
+    bottom: 42px;
+    left: -100px;
+  }
+
+  .bigbag-info__item {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    .form-label {
+      color: $font-input-label-color;
+      align-self: start;
+    }
+
+    .form-control {
+      outline: transparent;
+      border: 1px solid $border-color;
+    }
+
+    &:focus-within {
+      .form-control {
+        border-color: transparent;
+        outline: 2px solid $primary;
+      }
+
+      .form-label {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.show-info {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  @media (max-width: $extra-large-screen) {
+    display: block;
+  }
+}
+
+/* === / Custom popover === */
+
 
 .show {
   opacity: 1;
