@@ -6,7 +6,7 @@ const convertToPercent = () => {
   const formControl = convert.querySelector('.form-control');
   const materialInput = document.querySelector('#material-input');
   const mixerSizeSelect = document.querySelector('#mixer-size-select');
-  const overlay = document.querySelector('.convert__overlay') || createElement('div', 'convert__overlay');
+  const overlay = document.querySelector('.custom-popover__overlay') || createElement('div', 'custom-popover__overlay');
 
   const onChangeValue = () => {
     const value = (Number(formControl.value) * 100) / Number(mixerSizeSelect.value);
