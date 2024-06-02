@@ -17,7 +17,8 @@ const initPortionForm = () => {
   formEl.setAttribute('method', 'post');
   formEl.setAttribute('novalidate', '');
 
-  formEl.innerHTML = `<div class="form-group form-fields-group">
+  formEl.innerHTML = `
+  <div class="form-group form-fields-group">
   <label class="form-fields-group-label" for="material-input">Materiał</label>
   <div class="form-fields-group__wrapper">
     <input required="" class="form-fields-input" min="0" max="100" type="number" id="material-input"
@@ -33,7 +34,7 @@ const initPortionForm = () => {
         </svg>
       </button>
     </div>
-    <div class="convert">
+    <div class="custom-popover convert">
       <label for="convert-to-percent" class="form-label">Przelicz kg na %</label>
       <input type="number" class="form-control" placeholder="135" id="convert-to-percent">
     </div>
