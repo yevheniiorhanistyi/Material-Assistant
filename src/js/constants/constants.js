@@ -77,7 +77,7 @@ export const CURRENT_VERSION = {
   data-testid="WidgetsIcon" tabindex="-1" title="Widgets">
   <path d="M13 13v8h8v-8zM3 21h8v-8H3zM3 3v8h8V3zm13.66-1.31L11 7.34 16.66 13l5.66-5.66z"></path>
   </svg>`,
-  text: 'Aktualna wersja: 1.0.1',
+  text: 'Aktualna wersja: 1.0.2',
 };
 
 export const UTILS_NAVIGATION = [
