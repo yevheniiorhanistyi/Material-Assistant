@@ -137,6 +137,16 @@ body {
   fill: $bg-icon-button;
 }
 
+.bigbag-info-button {
+  position: absolute;
+  top: 3px;
+  right: 0;
+
+  .icon {
+    fill: lighten($font-text-color, 50%);
+  }
+}
+
 .header,
 .tabs {
   display: flex;
@@ -565,6 +575,13 @@ body {
 
 /* === Order form === */
 
+.table-wrapper {
+  @media (max-width: $laptop-screen) {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+}
+
 .order-calculate-form {
   width: 100%;
   max-width: 1188px;
@@ -603,6 +620,7 @@ body {
     outline: transparent;
   }
 
+
   .form-select {
     padding: 8px;
     height: 45px;
@@ -618,6 +636,16 @@ body {
     box-shadow: none;
     border-color: $primary;
   }
+
+  .material-quantity {
+    &:focus {
+      border-color: transparent;
+    }
+  }
+}
+
+.order-table {
+  min-width: 520px;
 }
 
 .form__group {
@@ -1145,27 +1173,26 @@ body {
 /* === / Snackbar === */
 
 
-/* ===  Convert === */
+/* ===  Custom popover === */
 
-.convert {
+.custom-popover {
   display: flex;
   flex-direction: column;
-  width: 250px;
-  height: 91px;
-  padding: 10px;
+  padding: 0 10px 10px;
   background-color: $bg-form;
   border-radius: 4px;
   box-shadow: $box-shadow-elevation-2;
   position: absolute;
-  bottom: -80px;
-  right: -25px;
+  bottom: -90px;
+  right: 0;
+  left: 0;
   z-index: 101;
 
   transform: translateY(-10px);
   visibility: hidden;
   opacity: 0;
 
-  transition: transform .2s linear, visibility .2s linear, opacity .2s linear;
+  transition: transform .2s linear, visibility .3s linear, opacity .3s linear;
 
   .form-label {
     color: $font-input-label-color;
@@ -1192,7 +1219,64 @@ body {
   }
 }
 
-/* === / Convert === */
+.convert {
+  width: 250px;
+  height: 80px;
+}
+
+.bigbag-info {
+  width: 182px;
+  padding-top: 5px;
+  margin-bottom: 0;
+  bottom: -233px;
+
+  @media (max-width: $extra-large-screen) {
+    display: none;
+    top: -223px;
+    bottom: 42px;
+    left: -100px;
+  }
+
+  .bigbag-info__item {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    .form-label {
+      color: $font-input-label-color;
+      align-self: start;
+    }
+
+    .form-control {
+      outline: transparent;
+      border: 1px solid $border-color;
+    }
+
+    &:focus-within {
+      .form-control {
+        border-color: transparent;
+        outline: 2px solid $primary;
+      }
+
+      .form-label {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.show-info {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  @media (max-width: $extra-large-screen) {
+    display: block;
+  }
+}
+
+/* === / Custom popover === */
+
 
 .show {
   opacity: 1;
